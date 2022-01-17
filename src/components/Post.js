@@ -20,7 +20,9 @@ const Post = ({ title, date, explanation, url }) => {
   };
 
   return (
-    <Card sx={{ margin: "auto auto 50px auto", maxWidth: "500px" }}>
+    <Card
+      sx={{ margin: "auto auto 50px auto", width: "100%", maxWidth: "500px" }}
+    >
       <CardHeader title={title} subheader={getDateAsPrettyString(date)} />
       <CardMedia component="img" alt="Paella dish" image={url} />
       <CardContent>
