@@ -32,7 +32,6 @@ Keyboard Controls:
 - `Tab ↹` to traverse through different interactive components of the app, `Tab ↹ + Shift ⇧` to go backwards.
 - `Return ↵` captures clicking functionality such as liking a photo, revealing photo description by clicking on dropdown button, and or opening calendar by clicking on date picker.
 - `Up Arrow ↑`, `Down Arrow ↓`, `Right Arrow →`, and `Left Arrow ←` to scroll and select datas on the calendar effectively.
--
 
 ## Built With
 
