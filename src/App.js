@@ -2,8 +2,9 @@ import { React, useState, useEffect } from "react";
 import "./App.css";
 import NavigationBar from "./components/NavigationBar";
 import Content from "./components/Content";
+import Alert from "@mui/material/Alert";
 
-import { getDateAsISOString } from "./utils/date";
+import { getDateAsISOString, getDateAsPrettyString } from "./utils/date";
 
 function App() {
   const OFFSET = 15;
@@ -11,21 +12,33 @@ function App() {
   const [startDate, setStartDate] = useState();
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const getAPODs = async (start, end) => {
+    setError(null);
     let arr = [];
     setLoading(true);
     try {
       // prettier-ignore
       const url = `https://api.nasa.gov/planetary/apod?api_key=hGyZfRvrrDPoh7zyygGscrbECLWOXNQzRiYXL3V1&start_date=${getDateAsISOString(start)}&end_date=${getDateAsISOString(end)}`;
       const res = await fetch(url);
+
       if (res.ok) {
         arr = (await res.json()).reverse();
       } else {
-        throw new Error("Unable to fetch data, please try again later.");
+        if (res.status === 400) {
+          throw new Error(
+            `Date must be between June 16, 1995 and ${getDateAsPrettyString(
+              getDateAsISOString(new Date())
+            )}.`
+          );
+        } else {
+          throw new Error("Unable to fetch data, please try again later.");
+        }
       }
     } catch (e) {
       console.log(e.message);
+      setError(e.message);
     }
     setLoading(false);
     return arr;
@@ -33,7 +46,10 @@ function App() {
 
   const handleStartDateChange = async (start) => {
     let sd, ed;
-    ed = new Date(posts[posts.length - 1].date + "T10:20:30Z");
+    console.log(posts);
+    if (posts.length !== 0) {
+      ed = new Date(posts[posts.length - 1].date + "T10:20:30Z");
+    }
     sd = new Date(start);
 
     if (start < ed) {
@@ -51,7 +67,9 @@ function App() {
 
   const handleEndDateChange = async (end) => {
     let sd, ed;
-    sd = new Date(posts[0].date + "T10:20:30Z");
+    if (posts.length !== 0) {
+      sd = new Date(posts[0].date + "T10:20:30Z");
+    }
     ed = new Date(end);
 
     if (end > sd) {
@@ -67,7 +85,7 @@ function App() {
     setEndDate(end);
   };
 
-  const loadMorePosts = async (start, end) => {
+  const loadMorePosts = async () => {
     let sd, ed;
     if (!startDate) {
       ed = new Date();
@@ -121,7 +139,19 @@ function App() {
           EndDateChange: handleEndDateChange,
         }}
       />
-      <Content data={posts} />
+      {!error ? (
+        <Content data={posts} />
+      ) : (
+        <Alert
+          severity="error"
+          variant="filled"
+          sx={{
+            margin: "10px 10px 10px 10px",
+          }}
+        >
+          {error}
+        </Alert>
+      )}
     </div>
   );
 }

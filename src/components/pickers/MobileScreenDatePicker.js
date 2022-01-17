@@ -12,8 +12,10 @@ const LargeScreenDatePicker = ({
   handleDateChange,
 }) => {
   const onDateChange = (val) => {
-    let date = new Date(getDateAsISOString(val) + "T10:20:30Z");
-    handleDateChange(date);
+    if (val) {
+      let date = new Date(getDateAsISOString(val) + "T10:20:30Z");
+      handleDateChange(date);
+    }
   };
 
   return (
