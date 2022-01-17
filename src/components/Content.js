@@ -2,17 +2,17 @@ import React from "react";
 import Post from "./Post";
 import { Box } from "@mui/system";
 
-const Content = () => {
+const Content = ({ data }) => {
   return (
     <Box
       sx={{
         display: "flex",
         flexDirection: "column",
-        justifyContent: "center",
         padding: "20px",
       }}
     >
-      <Post />
+      {data &&
+        data.map((p, i) => p.media_type !== "video" && <Post {...p} key={i} />)}
     </Box>
   );
 };
