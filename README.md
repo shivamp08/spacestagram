@@ -8,7 +8,7 @@
 
 Demo: https://spaceig.netlify.app/
 
-Web app that can search through NASA's Astronomy Picture of the Day (APOD) API, allowing the user to
+Web app that can search through NASA's Astronomy Picture of the Day (APOD) API, allowing users to endlessly scroll through photos and or browse photos between specific date range.
 
 ## Motivation
 
@@ -16,13 +16,23 @@ To showcase my Front-End development skills, via React, for the Shopify Web Deve
 
 ## Features
 
-- **Responsive Design **: Search the OMDB database and display the results.
-- **Nominate**: Add a movie from the search results to nomination list.
-- **View Nominations**: View the list of films already nominated (5 max).
-- **Remove Nomination**: Remove a nominee from the nomination list.
-- **Save Nominations**: Saves nomination list when user leaves page.
-- **Shareable Links**: Share nominations with other people by using a shareable link.
-- Responsive User Interface.
+- **Date Range Picker**: Search photos between two specific dates, inclusive.
+- **Like Posts**: Like favorite photos, undo the "like" as well.
+- **Dropdown Descriptions**: Click on the dropdown button to reveal a description about the photo.
+- **Loading Bar**: Displays a loading state while waiting for NASA’s API to return data.
+- **Load More Posts On Scroll**: Loads more APODs when users reach the end of the page.
+- Accessible and Responsive User Interface.
+
+## Accessibility
+
+Based on the [MDN Reference](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML), the app is accessible by all kinds of users and functionality can be attained via keyboard, mouse, and touch screen.
+
+Keyboard Controls:
+
+- `Tab ↹` to traverse through different interactive components of the app, `Tab ↹ + ⇧ Shift` to go backwards.
+- `↵ Return` to like a photo, dropdown a description of a photo, and or open the data picker.
+- `Up Arrow ↑`, `Down Arrow ↓`, `Right Arrow →`, and `Left Arrow ←` to scroll and traverse through the calender.
+-
 
 ## Built With
 
@@ -33,7 +43,7 @@ To showcase my Front-End development skills, via React, for the Shopify Web Deve
 
 ```bash
 # get the project
-$ git clone https://github.com/shivamp08/theshoppies
+$ git clone https://github.com/shivamp08/spacestagram
 
 # install dependencies
 $ npm install
