@@ -25,13 +25,13 @@ To showcase my Front-End development skills, via React, for the Shopify Web Deve
 
 ## Accessibility
 
-Based on the [MDN Reference](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML), the app is accessible by all kinds of users and functionality can be attained via keyboard, mouse, and touch screen.
+Based on the [MDN Reference](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML), the app is accessible by all kinds of users and full functionality can be attained via keyboard, mouse, and touch screen.
 
 Keyboard Controls:
 
 - `Tab ↹` to traverse through different interactive components of the app, `Tab ↹ + ⇧ Shift` to go backwards.
-- `↵ Return` to like a photo, dropdown a description of a photo, and or open the data picker.
-- `Up Arrow ↑`, `Down Arrow ↓`, `Right Arrow →`, and `Left Arrow ←` to scroll and traverse through the calender.
+- `↵ Return` captures clicking functionality such as liking a photo, revealing photo description by clicking on dropdown button, and or opening calendar by clicking on date picker.
+- `Up Arrow ↑`, `Down Arrow ↓`, `Right Arrow →`, and `Left Arrow ←` to scroll and select datas on the calendar effectively.
 -
 
 ## Built With
