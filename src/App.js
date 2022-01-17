@@ -18,7 +18,6 @@ function App() {
     try {
       // prettier-ignore
       const url = `https://api.nasa.gov/planetary/apod?api_key=hGyZfRvrrDPoh7zyygGscrbECLWOXNQzRiYXL3V1&start_date=${getDateAsISOString(start)}&end_date=${getDateAsISOString(end)}`;
-      console.log(url);
       const res = await fetch(url);
       if (res.ok) {
         arr = (await res.json()).reverse();
