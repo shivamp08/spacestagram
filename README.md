@@ -44,6 +44,9 @@ Keyboard Controls:
 # get the project
 $ git clone https://github.com/shivamp08/spacestagram
 
+# go into project directory
+$ cd spacestagram
+
 # install dependencies
 $ npm install
 
